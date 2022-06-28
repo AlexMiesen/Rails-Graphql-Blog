@@ -30,5 +30,13 @@ module Types
       Post.where(id: id).first
     end
 
+    field :comment, Types::CommentType, null: true do 
+      argument :id,ID, required: true
+    end 
+
+    def comment(id:) 
+      Comment.where(id: id).first
+    end
+
   end
 end
