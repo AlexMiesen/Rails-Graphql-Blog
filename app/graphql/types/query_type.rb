@@ -19,7 +19,7 @@ module Types
     end
 
     def user(id:) 
-      User.where(id: id).first
+      User.find(id)
     end
 
     field :post, Types::PostType, null: true do
@@ -35,7 +35,7 @@ module Types
     end 
 
     def comment(id:) 
-      Comment.where(id: id).first
+      Comment.find(id)
     end
 
   end
