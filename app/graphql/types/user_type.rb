@@ -9,6 +9,12 @@ class Types::UserType < Types::BaseObject
 	field :city, String, null: false
 	field :postcode, Int, null: false
 	field :country, String, null: false
+	field :full_name, String, null: true
+
+	def full_name
+		"#{object.first_name} #{object.last_name}"
+	end 
+	
 	field :full_address, String, null: true
 
 	def full_address
