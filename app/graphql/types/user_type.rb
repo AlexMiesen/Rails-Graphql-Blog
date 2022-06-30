@@ -21,6 +21,13 @@ class Types::UserType < Types::BaseObject
 		"#{object.number} #{object.street}, #{object.postcode}, #{object.city}, #{object.country}"
 	end
 
+	# def full_address
+	# 	([:street, :number, :postcode, :city, :country].map do |a|
+	# 		object.send(a)&.strip
+	# 	end.compact - ['']).join(', ')
+	# end
+
+
 	field :posts, [Types::PostType], null: true
 
 	def posts
