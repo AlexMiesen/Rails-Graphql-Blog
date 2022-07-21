@@ -27,10 +27,22 @@ class Types::UserType < Types::BaseObject
 	# 	end.compact - ['']).join(', ')
 	# end
 
-
 	field :posts, [Types::PostType], null: true
 
 	def posts
 		Post.all
 	end
 end
+
+class Types::UserInputType < GraphQL::Schema::InputObject
+	graphql_name "UserInputType"
+	description 'All attributes needed to create a user'
+
+	argument :first_name, String, required: false
+	argument :last_name, String, required: false
+	argument :street, String, required: false
+	argument :number, Int, required: false
+	argument :city, String, required: false
+	argument :postcode, Int, required: false
+	argument :country, String, required: false
+end 

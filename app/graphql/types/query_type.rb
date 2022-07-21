@@ -22,6 +22,13 @@ module Types
       User.find(id)
     end
 
+    field :users, [Types::UserType], null: true do
+    end
+
+    def users
+      User.all
+    end 
+
     field :post, Types::PostType, null: true do
       argument :id, ID, required: true
     end
