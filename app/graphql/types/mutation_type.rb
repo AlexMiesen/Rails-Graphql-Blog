@@ -33,7 +33,7 @@ module Types
       exisiting&.update post.to_h
     end
 
-    field :delete_post, Boolean, null: true, description: "Delete a comment" do
+    field :delete_post, Boolean, null: true, description: "Delete a post" do
       argument :id, ID, required: true
     end 
     
@@ -49,6 +49,15 @@ module Types
     def update_comment(comment:)
       exisiting = Comment.find(comment[:id])
       exisiting&.update comment.to_h 
+    end
+
+    field :delete_comment, Boolean, null: true, description: "Delete a comment" do
+      argument :id, ID, required: true
+    end
+
+    def delete_comment(id:)
+      Comment.find(id).destroy
+      true
     end
 
   end
