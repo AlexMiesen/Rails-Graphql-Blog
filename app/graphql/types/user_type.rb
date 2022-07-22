@@ -36,8 +36,9 @@ end
 
 class Types::UserInputType < GraphQL::Schema::InputObject
 	graphql_name "UserInputType"
-	description 'All attributes needed to create a user'
+	description 'All attributes needed to create/update a user'
 
+	argument :id, ID, required: false # this one is needed for updating
 	argument :first_name, String, required: false
 	argument :last_name, String, required: false
 	argument :street, String, required: false
