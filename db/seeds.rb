@@ -15,3 +15,13 @@
 		postcode: 2248,
 		country: "Australia"
 	)
+
+	User.create(
+		first_name: "Paul",
+		last_name: "Phoenix",
+		street: "Ringo Street",
+		number: 420,
+		city: "Melbourne",
+		postcode: 3012,
+		country: "Australia"
+	)
