@@ -6,8 +6,9 @@ end
 
 class Types::CommentInputType < GraphQL::Schema::InputObject
 	graphql_name "CommentInputType"
-	description 'create a comment for a post'
+	description 'create/update a comment for a post'
 
+	argument :id, ID, required: true
 	argument :post_id, Int, required: true
 	argument :body, String, required: true
 end 
