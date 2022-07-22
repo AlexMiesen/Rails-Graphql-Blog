@@ -8,11 +8,9 @@ end
 
 class Types::PostInputType < GraphQL::Schema::InputObject
 	graphql_name "PostInputType"
-	description 'create a post for a user'
-
+	description 'create/update a post for a user'
+	
+	argument :id, ID, required: true
 	argument :user_id, Int, required: true
 	argument :body, String, required: true 
-
-
-
 end

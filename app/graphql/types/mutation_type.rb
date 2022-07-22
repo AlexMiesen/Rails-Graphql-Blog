@@ -13,5 +13,15 @@ module Types
       exisiting = User.find(user[:id])
       exisiting&.update user.to_h
     end
+
+    field :update_post, Boolean, null: true, description: "Update post" do 
+      argument :post, Types::PostInputType, required: true 
+    end
+
+    def update_post(post:)
+      exisiting = Post.find(post[:id])
+      exisiting&.update post.to_h
+    end 
+
   end
 end
