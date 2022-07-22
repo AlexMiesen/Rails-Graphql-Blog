@@ -1,6 +1,6 @@
 class Mutations::CreateComment < GraphQL::Schema::Mutation
 	
-	null false 
+	null true
 
 	argument :comment, Types::CommentInputType, required: true
 

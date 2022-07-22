@@ -4,13 +4,20 @@ class Types::PostType < Types::BaseObject
 	field :user_id, Int, null: false
 
 	field :comments, [Types::CommentType], null: true
+
+
+	field :errors, [Types::ErrorType], null: true
+
+	def errors
+		object.errors.map { |e| {field_name: e, errors: object.errors[e] }}
+	end 
 end
 
 class Types::PostInputType < GraphQL::Schema::InputObject
 	graphql_name "PostInputType"
 	description 'create/update a post for a user'
 	
-	argument :id, ID, required: true
-	argument :user_id, Int, required: true
-	argument :body, String, required: true 
+	argument :id, ID, required: false
+	argument :user_id, Int, required: false
+	argument :body, String, required: false 
 end

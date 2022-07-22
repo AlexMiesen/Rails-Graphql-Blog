@@ -1,6 +1,6 @@
 class Mutations::CreatePost < GraphQL::Schema::Mutation
 	
-	null false 
+	null true
 
 	argument :post, Types::PostInputType, required: true
 
