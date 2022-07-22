@@ -27,6 +27,13 @@ class Types::UserType < Types::BaseObject
 	# 	end.compact - ['']).join(', ')
 	# end
 
+
+	field :errors, [Types::ErrorType], null: true
+
+	def errors
+		object.errors.map { |e| {field_name: e, errors: object.errors[e] }}
+	end 
+
 	field :posts, [Types::PostType], null: true
 
 	def posts
